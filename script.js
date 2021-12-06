@@ -25,10 +25,10 @@ const calculator = () => {
 
   const addValue = (a, b) => {
     if (result == 0) {
-      //   if the use provides 2 args, add to result
+      //   if the user provides 2 args, add to result
       if (!checkEmptyAndNonNumber(a) && !checkEmptyAndNonNumber(b)) {
-        result = parseInt(a) + parseInt(b);
-        saveOp("adunare", parseInt(a), parseInt(b), result);
+        result = a + b;
+        saveOp("adunare", a, b, result);
       } else {
         console.log("invalid inputs");
         result = 0;
@@ -36,16 +36,16 @@ const calculator = () => {
     } else {
       if (!checkEmptyAndNonNumber(a) && !checkEmptyAndNonNumber(b)) {
         resetHistory();
-        result = /*result +*/ parseInt(a) + parseInt(b);
-        saveOp("adunare", parseInt(a), parseInt(b), result);
+        result = /*result +*/ a + b;
+        saveOp("adunare", a, b, result);
       } else {
         if (checkEmptyAndNonNumber(a) && !checkEmptyAndNonNumber(b)) {
-          result = result + parseInt(b);
-          saveOp("adunare", null, parseInt(b), result);
+          result = result + b;
+          saveOp("adunare", null, b, result);
           console.log(myMap);
         } else if (!checkEmptyAndNonNumber(a) && checkEmptyAndNonNumber(b)) {
-          result = result + parseInt(a);
-          saveOp("adunare", parseInt(a), null, result);
+          result = result + a;
+          saveOp("adunare", a, null, result);
         }
       }
     }
@@ -55,8 +55,8 @@ const calculator = () => {
     if (result == 0) {
       //   if the use provides 2 args, add to result
       if (!checkEmptyAndNonNumber(a) && !checkEmptyAndNonNumber(b)) {
-        result = parseInt(a) - parseInt(b);
-        saveOp("scadere", parseInt(a), parseInt(b), result);
+        result = a - b;
+        saveOp("scadere", a, b, result);
       } else {
         console.log("invalid inputs");
         result = 0;
@@ -64,16 +64,16 @@ const calculator = () => {
     } else {
       if (!checkEmptyAndNonNumber(a) && !checkEmptyAndNonNumber(b)) {
         resetHistory();
-        result = /*result +*/ parseInt(a) - parseInt(b);
-        saveOp("scadere", parseInt(a), parseInt(b), result);
+        result = /*result +*/ a - b;
+        saveOp("scadere", a, b, result);
       } else {
         if (checkEmptyAndNonNumber(a) && !checkEmptyAndNonNumber(b)) {
-          result = result - parseInt(b);
-          saveOp("scadere", null, parseInt(b), result);
+          result = result - b;
+          saveOp("scadere", null, b, result);
           console.log(myMap);
         } else if (!checkEmptyAndNonNumber(a) && checkEmptyAndNonNumber(b)) {
-          result = result - parseInt(a);
-          saveOp("scadere", parseInt(a), null, result);
+          result = result - a;
+          saveOp("scadere", a, null, result);
         }
       }
     }
@@ -83,8 +83,8 @@ const calculator = () => {
     if (result == 0) {
       //   if the use provides 2 args, add to result
       if (!checkEmptyAndNonNumber(a) && !checkEmptyAndNonNumber(b)) {
-        result = parseInt(a) * parseInt(b);
-        saveOp("inmultire", parseInt(a), parseInt(b), result);
+        result = a * b;
+        saveOp("inmultire", a, b, result);
       } else {
         console.log("invalid inputs");
         result = 0;
@@ -92,16 +92,16 @@ const calculator = () => {
     } else {
       if (!checkEmptyAndNonNumber(a) && !checkEmptyAndNonNumber(b)) {
         resetHistory();
-        result = /*result +*/ parseInt(a) * parseInt(b);
-        saveOp("inmultire", parseInt(a), parseInt(b), result);
+        result = /*result +*/ a * b;
+        saveOp("inmultire", a, b, result);
       } else {
         if (checkEmptyAndNonNumber(a) && !checkEmptyAndNonNumber(b)) {
-          result = result * parseInt(b);
-          saveOp("inmultire", null, parseInt(b), result);
+          result = result * b;
+          saveOp("inmultire", null, b, result);
           console.log(myMap);
         } else if (!checkEmptyAndNonNumber(a) && checkEmptyAndNonNumber(b)) {
-          result = result * parseInt(a);
-          saveOp("inmultire", parseInt(a), null, result);
+          result = result * a;
+          saveOp("inmultire", a, null, result);
         }
       }
     }
@@ -113,10 +113,10 @@ const calculator = () => {
       if (
         !checkEmptyAndNonNumber(a) &&
         !checkEmptyAndNonNumber(b) &&
-        parseInt(b) != 0
+        b != 0
       ) {
-        result = parseInt(a) / parseInt(b);
-        saveOp("impartire", parseInt(a), parseInt(b), result);
+        result = a / b;
+        saveOp("impartire", a, b, result);
       } else {
         console.log("invalid inputs");
         result = 0;
@@ -125,27 +125,27 @@ const calculator = () => {
       if (
         !checkEmptyAndNonNumber(a) &&
         !checkEmptyAndNonNumber(b) &&
-        parseInt(b) != 0
+        b != 0
       ) {
         resetHistory();
-        result = /*result +*/ parseInt(a) / parseInt(b);
-        saveOp("impartire", parseInt(a), parseInt(b), result);
+        result = /*result +*/ a / b;
+        saveOp("impartire", a, b, result);
       } else {
         if (
           checkEmptyAndNonNumber(a) &&
           !checkEmptyAndNonNumber(b) &&
-          parseInt(b) != 0
+          b != 0
         ) {
-          result = result / parseInt(b);
-          saveOp("impartire", null, parseInt(b), result);
+          result = result / b;
+          saveOp("impartire", null, b, result);
           console.log(myMap);
         } else if (
           !checkEmptyAndNonNumber(a) &&
           checkEmptyAndNonNumber(b) &&
-          parseInt(a) != 0
+          a != 0
         ) {
-          result = result / parseInt(a);
-          saveOp("impartire", parseInt(a), null, result);
+          result = result / a;
+          saveOp("impartire", a, null, result);
         }
       }
     }
@@ -176,6 +176,12 @@ const calculator = () => {
 };
 
 let myCalc = calculator();
+myCalc.addValue(null, "null");
+myCalc.addValue("undefined", undefined);
+myCalc.addValue("null", "undefined");
+myCalc.addValue(null, null);
+myCalc.addValue("123null", "1undefined");
+myCalc.addValue(4.3, 4.2);
 myCalc.substractValue(3, 4);
 myCalc.substractValue(4);
 myCalc.addValue(4);
@@ -189,11 +195,6 @@ myCalc.multiplyValue(2, 2);
 myCalc.divideValude(2);
 myCalc.multiplyValue(5);
 myCalc.multiplyValue(10);
-myCalc.multiplyValue(2,2);
-myCalc.addValue(null, "null");
-myCalc.addValue("undefined", undefined);
-myCalc.addValue("null", "undefined");
-myCalc.addValue(null, null);
-myCalc.addValue('123null', '1undefined');
-console.log("getter value: ", myCalc.currentValue());
+myCalc.multiplyValue(2, 2);
+// console.log("getter value: ", myCalc.currentValue());
 myCalc.getHistory();
