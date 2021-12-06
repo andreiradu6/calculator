@@ -1,1 +1,1 @@
-bug test
+inputs accepts only integer values. remove parseInt for every result calc.
